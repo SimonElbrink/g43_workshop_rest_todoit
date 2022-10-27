@@ -18,7 +18,8 @@ public class ToDoItemController {
         this.toDoItemService = toDoItemService;
     }
 
-    @PostMapping("/api/v1/toDoItem")
+//    @PostMapping("/api/v1/toDoItem")
+    @PostMapping("/todo/api/v1/toDoItem")
     public ResponseEntity<ToDoItemDto> create(@RequestBody ToDoItemForm form){
         return ResponseEntity.status(HttpStatus.CREATED).body(toDoItemService.create(form));
     }
@@ -29,17 +30,20 @@ public class ToDoItemController {
         return ResponseEntity.ok(toDoItemService.update(form,id));
     }
 
-    @GetMapping("/api/v1/toDoItem")
+//    @GetMapping("/api/v1/toDoItem")
+    @GetMapping("/todo/api/v1/toDoItem")
     public ResponseEntity<List<ToDoItemDto>> findAll(){
         return ResponseEntity.ok(toDoItemService.findAll());
     }
 
-    @GetMapping("/api/v1/toDoItem/{id}")
+//    @GetMapping("/api/v1/toDoItem/{id}")
+    @GetMapping("/todo/api/v1/toDoItem/{id}")
     public ResponseEntity<ToDoItemDto> findById(@PathVariable("id") Integer id){
         return ResponseEntity.ok(toDoItemService.findById(id));
     }
 
-    @DeleteMapping("/api/v1/toDoItem/{id}")
+//    @DeleteMapping("/api/v1/toDoItem/{id}")
+    @DeleteMapping("/todo/api/v1/toDoItem/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id){
         toDoItemService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
