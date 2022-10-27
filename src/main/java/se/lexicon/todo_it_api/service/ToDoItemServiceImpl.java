@@ -31,11 +31,17 @@ public class ToDoItemServiceImpl implements ToDoItemService{
     }
 
     @Override
-    public void update(ToDoItemForm form, Integer id) {
+    public ToDoItemDto update(ToDoItemForm form, Integer id) {
         if(id==null) throw new IllegalArgumentException("Id is null");
-        if (form == null) throw new IllegalArgumentException("was null");
-        TodoItem todoItem = modelMapper.map(form, TodoItem.class);
-        todoItemDAO.save(todoItem);
+        if (form == null) throw new IllegalArgumentException("Form was null");
+        TodoItem todoItem=todoItemDAO.findById(id).orElseThrow(()->new IllegalArgumentException("Id is null"));
+        if(todoItem.getTodoId()==id){
+            todoItem.setTitle(form.getTitle());
+            todoItem.setDescription(form.getDescription());
+            todoItem.setDeadLine(form.getDeadLine());
+          todoItem=  todoItemDAO.save(todoItem);
+        }
+        return modelMapper.map(todoItem,ToDoItemDto.class);
     }
 
     @Override

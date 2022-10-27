@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.lexicon.todo_it_api.dto.PersonDto;
 import se.lexicon.todo_it_api.form.PersonForm;
+import se.lexicon.todo_it_api.model.entity.Person;
 import se.lexicon.todo_it_api.service.PersonService;
 
 import java.util.List;
@@ -24,10 +25,10 @@ public class PersonController {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(personForm));
     }
 
-    @PutMapping("api/v1/person/{id}")
-    public ResponseEntity<Void> update(@PathVariable("id") Integer id, @RequestBody PersonForm personForm){
-        personService.update(personForm, id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    @PutMapping("/todo/api/v1/person/{id}")
+    public ResponseEntity<PersonDto> update(@PathVariable("id") Integer id, @RequestBody PersonForm personForm){
+        return ResponseEntity.ok(personService.update(personForm, id));
+
     }
     @GetMapping("api/v1/person")
     public ResponseEntity<List<PersonDto>> findAll(){

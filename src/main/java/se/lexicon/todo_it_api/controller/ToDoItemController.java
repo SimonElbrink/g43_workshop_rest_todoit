@@ -23,10 +23,10 @@ public class ToDoItemController {
         return ResponseEntity.status(HttpStatus.CREATED).body(toDoItemService.create(form));
     }
 
-    @PutMapping("/api/v1/toDoItem/{id}")
-    public ResponseEntity<Void> update(@PathVariable("id") Integer id,@RequestBody ToDoItemForm form){
-        toDoItemService.update(form,id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//    @PutMapping("/api/v1/toDoItem/{id}")
+    @PutMapping("/todo/api/v1/toDoItem/{id}")
+    public ResponseEntity<ToDoItemDto> update(@PathVariable("id") Integer id,@RequestBody ToDoItemForm form){
+        return ResponseEntity.ok(toDoItemService.update(form,id));
     }
 
     @GetMapping("/api/v1/toDoItem")

@@ -33,15 +33,22 @@ public class PersonServiceImpl implements  PersonService{
     }
 
     @Override
-    public void update(PersonForm form, Integer id) {
-        if(personDAO.existsById(id)){
-      //  Person person = modelMapper.map(form, Person.class);
-        //if(person.getPersonId()==id){
-            // personDAO.save(person);
-        personDAO.save(modelMapper.map(form,Person.class));
+    public PersonDto update(PersonForm form, Integer id) {
+
+        Person  person=personDAO.findById(id).orElseThrow(()->new IllegalArgumentException("Id is null"));
+        System.out.println(person);
+        if(person.getPersonId()==id){
+            person.setFirstName(form.getFirstName());
+            person.setLastName(form.getLastName());
+            person.setBirthDate(form.getBirthDate());
+            person =personDAO.save(person);
 
         }
-    }
+        System.out.println(person);
+        return modelMapper.map(person,PersonDto.class);
+
+        }
+
 
     @Override
     public List<PersonDto> findAll() {

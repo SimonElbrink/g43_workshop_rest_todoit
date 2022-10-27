@@ -7,7 +7,7 @@ import java.util.List;
 public interface PersonService {
 
     PersonDto create(PersonForm form);
-    void update(PersonForm form, Integer id);
+    PersonDto update(PersonForm form, Integer id);
     List<PersonDto> findAll();
     PersonDto findById(Integer id);
     void delete(Integer id);

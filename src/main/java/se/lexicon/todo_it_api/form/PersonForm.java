@@ -11,11 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 
 public class PersonForm {
-
+   // private Integer personId;
     private String firstName;
     private String lastName;
     private LocalDate birthDate=LocalDate.now();
-
-
-
 }

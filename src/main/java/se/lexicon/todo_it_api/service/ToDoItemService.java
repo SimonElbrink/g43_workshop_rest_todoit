@@ -9,7 +9,7 @@ public interface ToDoItemService {
     //Form to
 
     ToDoItemDto create(ToDoItemForm form);
-    void update(ToDoItemForm form,Integer id);
+    ToDoItemDto update(ToDoItemForm form,Integer id);
     List<ToDoItemDto> findAll();
     ToDoItemDto findById(Integer id);
     void delete(Integer id);
