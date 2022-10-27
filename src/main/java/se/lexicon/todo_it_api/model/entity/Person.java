@@ -1,5 +1,6 @@
 package se.lexicon.todo_it_api.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
