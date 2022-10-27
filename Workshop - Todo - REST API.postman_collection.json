@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "49f4b1b8-50be-444d-a931-cc9557971a6b",
+		"name": "Workshop - Todo - REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7655778"
+	},
+	"item": [
+		{
+			"name": "PeronController",
+			"item": [
+				{
+					"name": "Create Test Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Test\",\r\n    \"lastName\": \"Testsson\",\r\n    \"birthDate\": \"1970-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Person (test)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Test\",\r\n    \"lastName\": \"Testsson\",\r\n    \"birthDate\": \"2000-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Person (Simon)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Simon\",\r\n    \"lastName\": \"Elbrink\",\r\n    \"birthDate\": \"1997-03-18\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find Idle person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people?search=idle",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "idle"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/1/todos/add?todoId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"1",
+								"todos",
+								"add"
+							],
+							"query": [
+								{
+									"key": "todoId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id (Not Found)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/156123",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"156123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/people/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"people",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TodoItemController",
+			"item": [
+				{
+					"name": "Create Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Create a Todo\",\r\n    \"description\": \"this is the first Todo Created by the client\",\r\n    \"deadLine\": \"2030-01-01\",\r\n    \"done\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find unassigned",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=unassigned",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "unassigned"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by doneStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=done_status&values=false",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "done_status"
+								},
+								{
+									"key": "values",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by date between",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=between&values=2021-09-01, 2030-12-01",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "between"
+								},
+								{
+									"key": "values",
+									"value": "2021-09-01, 2030-12-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by date before",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=before&values=2040-09-01",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "before"
+								},
+								{
+									"key": "values",
+									"value": "2040-09-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by date After",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=after&values=2024-12-01",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "after"
+								},
+								{
+									"key": "values",
+									"value": "2024-12-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by late",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=late",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "late"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=title&values=Create a Todo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "title"
+								},
+								{
+									"key": "values",
+									"value": "Create a Todo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Create a Todo\",\r\n    \"description\": \"this is the first Todo Created by the client\",\r\n    \"deadLine\": \"2024-01-01\",\r\n    \"done\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "webpage",
+			"value": "https://g43-todoapplication.herokuapp.com",
+			"type": "string"
+		}
+	]
+}
