@@ -20,7 +20,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @PostMapping("/api/v1/person")
+    @PostMapping("/todo/api/v1/person")
     public ResponseEntity<PersonDto> create(@RequestBody PersonForm personForm){
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(personForm));
     }
@@ -30,17 +30,17 @@ public class PersonController {
         return ResponseEntity.ok(personService.update(personForm, id));
 
     }
-    @GetMapping("api/v1/person")
+    @GetMapping("/todo/api/v1/person")
     public ResponseEntity<List<PersonDto>> findAll(){
         return ResponseEntity.ok(personService.findAll());
     }
 
-    @GetMapping("api/v1/person/{id}")
+    @GetMapping("/todo/api/v1/person/{id}")
     public ResponseEntity<PersonDto> findById(@PathVariable("id") Integer id ){
         return ResponseEntity.ok(personService.findById(id));
     }
 
-    @DeleteMapping("api/v1/person/{id}")
+    @DeleteMapping("/todo/api/v1/person/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id){
         personService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
