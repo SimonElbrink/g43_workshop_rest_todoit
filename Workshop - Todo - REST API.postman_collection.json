@@ -330,6 +330,37 @@
 					"response": []
 				},
 				{
+					"name": "Find tasks by Person ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/todo/api/v1/todos?search=person_id&values=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"todo",
+								"api",
+								"v1",
+								"todos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "person_id"
+								},
+								{
+									"key": "values",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Find by doneStatus",
 					"request": {
 						"method": "GET",

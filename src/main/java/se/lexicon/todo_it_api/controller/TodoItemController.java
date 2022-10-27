@@ -29,7 +29,7 @@ public class TodoItemController {
     }
 
     private final List<String> searchTypes = Arrays.asList(
-            "all", "unassigned", "done_status", "between", "before", "after", "title", "late"
+            "all", "unassigned","person_id", "done_status", "between", "before", "after", "title", "late"
     );
 
 
@@ -53,6 +53,10 @@ public class TodoItemController {
                 break;
             case "unassigned":
                 todoItemDto = todoItemService.findAllUnassigned();
+                break;
+            case "person_id":
+                Integer personId = Integer.parseInt(values[0]);
+                todoItemDto = todoItemService.findAllByPersonId(personId);
                 break;
             case "done_status":
                 boolean doneStatus = Boolean.parseBoolean(values[0]);
